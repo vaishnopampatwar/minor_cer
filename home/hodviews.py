@@ -10,10 +10,10 @@ from .forms import FileForm
 from home.models import CustomUser, Staff, Courses,Student,StudentResult,ResultAnalysis
 import mysql.connector
 mydb = mysql.connector.connect(
-        user="studmanagement",
-        password="studmanagement_pass",
-        database="studmanagement",
-        host="127.0.0.1",
+        user="ux5kocwc97eprzzo",
+        password="YIxg2EmwcBBuEdB4iGS1",
+        database="bnsbdby2zxhx9g5dnhpe",
+        host="bnsbdby2zxhx9g5dnhpe-mysql.services.clever-cloud.com",
 )
 def hod_home(request):
     #print("outside block")
