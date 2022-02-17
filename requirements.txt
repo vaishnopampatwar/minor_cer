@@ -16,3 +16,4 @@ sqlparse
 urllib3
 whitenoise
 django-heroku
+mysql
