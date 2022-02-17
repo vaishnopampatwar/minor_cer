@@ -17,3 +17,5 @@ urllib3
 whitenoise
 django-heroku
 mysql
+mysql-connector
+mysql-connector-python
