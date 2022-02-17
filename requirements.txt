@@ -7,6 +7,7 @@ django-rest-framework
 djangorestframework
 gunicorn
 idna
+mysqlclient
 psycopg2
 PyJWT
 pytz
