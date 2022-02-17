@@ -1,0 +1,113 @@
+{% extends 'staff_template/base_template.html' %}
+
+{% block page_title %}
+    Manage Student
+{% endblock page_title %}
+
+{% block main_content %}
+
+{% load static %}
+
+<section class="content">
+        <div class="container-fluid">
+
+            <a class="btn btn-primary" href="{% url 'add_student' %}" role="button">+ Add Student</a> <br/>&nbsp;      
+            {% if messages %}
+                                <div class="form-group">
+                                <div class="col-12">
+                                    {% for message in messages %}
+                                    {% if message.tags == "error" %}
+                                        <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 10px;">
+                                        {{ message }}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                    {% elif message.tags == "success" %}
+                                        <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 10px;">
+                                        {{ message }}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                                </div>
+                                {% endif %}
+
+            <div class="row">
+
+                <div class="col-md-12">
+                    <!-- general form elements -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Student Details</h3>
+
+                            <div class="card-tools">
+                            <div class="input-group input-group-sm" style="width: 150px;">
+                                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                                <div class="input-group-append">
+                                <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body table-responsive p-0">
+                            <table class="table table-hover text-nowrap">
+                            <thead>
+                                <tr>
+                                <th>ID</th>
+                                <th>PRN</th>
+                                <th>Name</th>
+                                <th>Mother Name</th>
+                                <th>Password</th>
+                                <th>Mobile</th>
+                                <th>Email</th>
+                                <th>Sas</th>
+                                <th>Course</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                
+                                <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for student in student %}
+                                     {%if student.course_id.course_name == course.course_name%}
+                                        <tr>
+                                        <td>{{ student.id }}</td>
+                                        <td>{{ student.prn }}</td>
+                                        <td>{{ student.name }}</td>
+                                        <td>{{ student.mother_name }}</td>
+                                        <td>{{ student.password }}</td>
+                                        <td>{{ student.mob }}</td>
+                                        <td>{{ student.email }}</td>
+                                        <td>{{ student.sas }}</td>
+                                        <td>{{ student.course_id.course_name }}</td>
+                                        <td>{{ student.date}}</td>
+                                        <td>{{ student.time}}</td>
+                                        <td>
+                                
+                                        <a href="{% url 'delete_student' student.id %}" class="btn btn-danger">Delete</a>
+                                        </td>
+                                        </tr>
+                                    {%endif%} 
+                                {% endfor %}
+                                
+                            </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                        </div>
+                    <!-- /.card -->
+
+                </div>
+            </div>
+
+        </div><!-- /.container-fluid -->
+      </section>
+
+  {% endblock main_content %}

@@ -1,0 +1,104 @@
+{% load static %}
+
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    
+      <a href="{% url 'admin_home' %}" class="brand-link">
+        <img src="{% static 'dist/img/clg.jpg' %}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+            style="opacity: .8">
+        <span class="brand-text font-weight-light">WCE</span>
+      </a>
+      <div class="sidebar">
+      
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div class="image">
+            <img src="{% static 'dist/img/user2-160x160.jpg' %}" class="img-circle elevation-2" alt="User Image">
+          </div>
+          <div class="info">
+            <a href="" class="d-block">{{ user.username }} {{ user.last_name }}</a>
+          </div>
+        </div>
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          
+                
+
+            {% comment %} <li class="nav-item">
+              {% url 'admin_home' as admin_home %}
+              <a href="{{ admin_home }}" class="nav-link {% if request.path == admin_home %} active {% endif %}">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                  Home
+                </p>
+              </a>
+            </li> {% endcomment %}
+
+            <li class="nav-item">
+              {% url 'manage_staff' as manage_staff %}
+              {% url 'edit_staff' staff_id=id as edit_staff %}
+              <a href="{{ manage_staff }}" class="nav-link {% if request.path == manage_staff %} active {% endif %} {% if request.path == edit_staff %} active {% endif %}">
+                <i class="nav-icon fas fa-chalkboard-teacher"></i>
+                <p>
+                  Manage Staff
+                </p>
+              </a>
+            </li>
+            
+            <li class="nav-item">
+              
+              <a href="/staff_add" class="nav-link {% if request.path == staff_add %} active {% endif %}">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Add Staff
+                </p>
+              </a>
+            </li>
+
+            
+            <li class="nav-item">
+              {% url 'manage_course' as manage_course %}
+              {% url 'edit_course' course_id=id as edit_course %}
+              <a href="{{ manage_course }}" class="nav-link {% if request.path == manage_course %} active {% endif %} {% if request.path == edit_course %} active {% endif %}">
+                <i class="nav-icon fas fa-chalkboard"></i>
+                <p>
+                  Manage Course
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+            
+              <a href="/add_course" class="nav-link {% if request.path == add_course %} active {% endif %}">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Add Course
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              {% url 'manage_hod' as manage_hod %}
+              {% url 'edit_hod' hod_id=id as edit_hod %}
+              <a href="{{ manage_hod }}" class="nav-link {% if request.path == manage_hod %} active {% endif %} {% if request.path == edit_hod %} active {% endif %}">
+                <i class="nav-icon fas fa-chalkboard-teacher"></i>
+                <p>
+                  Manage HoD
+                </p>
+              </a>
+            </li>
+            
+            <li class="nav-item">
+              
+              <a href="/add_hod" class="nav-link {% if request.path == hod_add %} active {% endif %}">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Add HoD
+                </p>
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+      
+      </div>
+    
+    </aside>

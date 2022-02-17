@@ -1,0 +1,82 @@
+{% extends 'staff_template/base_template.html' %}
+
+{% block page_title %}
+    
+{% endblock page_title %}
+
+{% block main_content %}
+
+{% load static %}
+
+<section class="content m-t-5">
+        <div class="container-fluid">
+
+            <div class="row d-flex flex-column align-content-center ">
+                <div class="col-md-6 col-8 ">
+                    <div class="small-box bg-info">
+                    <div class="inner">
+                        <h3>{{ students_count }}</h3>
+
+                        <p>Courses Under Me</p>
+                        
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-stats-bars"></i>
+                    </div>
+                    <form method="POST" action="/show_student">
+                        {% csrf_token %} 
+                        <select id="course" class="form-control" name="course">
+                            {% for courses in courses %}
+                                {% if courses.staff_id.id == user.id %}
+                                    <option value = "{{ courses.id}}">{{courses.course_name}}</option>
+                                {%endif%}  
+                            {% endfor%}
+                            
+                        </select>
+                
+                        <div class="card-footer" style="align-item:center">
+                            <button type="submit" class="btn btn-primary">Get Students</button>
+                        </div>
+
+                </form>
+                
+                
+                    {% comment %} <a href="" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> {% endcomment %}
+                    {% comment %} <form action="/action_page.php">
+                        <select id="course" class="form-control" name="course">
+                            {% for staffs in staffs %}
+                                {% if staffs.staff == user.username %}
+                                <option value = "{{ staffs.course_name}}">{{staffs.course_name}}</option>
+                                {%endif%}
+                            {% endfor%}
+                        </select>
+                        <input type="submit">
+                </form> {% endcomment %}
+                    </div>
+                </div>
+
+                {% comment %} <form>
+                    {% csrf_token %}
+                    <div class="form-group">
+                       
+                        <label>Course</label>
+                        <select class="form-control" name="course">
+                            {% for course in faculties %}
+                            {% if course.staff == user.username %}
+                               <option value = "{{ course.course_name}}">{{course.course_name}}</option>
+                            {%endif%}
+                            <h1>nn</h1>
+                            {% endfor%}
+                        </select>
+        
+                    </div>
+                
+                    
+                </form> {% endcomment %}
+                </div>
+        </div>
+      </section>
+
+  {% endblock main_content %}
+  {% block custom_js %}
+  {% endblock custom_js %}
