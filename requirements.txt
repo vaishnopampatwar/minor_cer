@@ -1,0 +1,17 @@
+asgiref
+certifi
+chardet
+Django
+django-cors-headers
+django-rest-framework
+djangorestframework
+gunicorn
+idna
+psycopg2
+PyJWT
+pytz
+requests
+sqlparse
+urllib3
+whitenoise
+django-heroku

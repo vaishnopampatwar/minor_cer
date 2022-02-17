@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 import os
 from pathlib import Path
+import mimetypes
+mimetypes.add_type("text/css", ".css", True)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,8 +28,7 @@ SECRET_KEY = 'django-insecure-6r^b2)5$q9r3x@k0qb&o8e-6m^6p=vd7s(n&99$v*6xl-!dn#q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,10 +40,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'home'
+    'home',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -53,6 +57,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'studmanagement.urls'
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 TEMPLATES = [
     {
@@ -81,10 +87,10 @@ DATABASES = {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': BASE_DIR / 'db.sqlite3',
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'studmanagement',
-        'USER':'root',
-        'PASSWORD':'admin123',
-        'HOST':'127.0.0.1',
+        'NAME': 'bnsbdby2zxhx9g5dnhpe',
+        'USER':'ux5kocwc97eprzzo',
+        'PASSWORD':'YIxg2EmwcBBuEdB4iGS1',
+        'HOST':'bnsbdby2zxhx9g5dnhpe-mysql.services.clever-cloud.com',
         'PORT':'3306'
     }
 }
