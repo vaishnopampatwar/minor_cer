@@ -19,10 +19,10 @@ urlpatterns = [
     path('delete_staff/<staff_id>/', adminViews.delete_staff, name="delete_staff"),
 
     path('hod_home',hodviews.hod_home, name="hod_home"),
-    # path('add_hod/', adminViews.add_hod, name="add_hod"),
-    # path('add_hod_save', adminViews.add_hod_save, name="add_hod_save"),
-    # path('manage_hod/', adminViews.manage_hod, name="manage_hod"),
-    # path('delete_hod/<hod_id>/', adminViews.delete_hod, name="delete_hod"),
+    path('add_hod/', adminViews.add_hod, name="add_hod"),
+    path('add_hod_save', adminViews.add_hod_save, name="add_hod_save"),
+    path('manage_hod/', adminViews.manage_hod, name="manage_hod"),
+    path('delete_hod/<hod_id>/', adminViews.delete_hod, name="delete_hod"),
    
     
 
